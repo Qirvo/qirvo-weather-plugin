@@ -11,6 +11,30 @@ Before you begin, ensure you have:
 3. **NPM** or **Yarn** package manager
 4. **OpenWeatherMap API Key** (free at [openweathermap.org](https://openweathermap.org/api))
 
+## 🏗️ Architecture Overview
+
+The Weather Plugin uses a modern TypeScript React architecture with CommonJS compatibility:
+
+### Component Structure
+
+```text
+src/
+├── components/
+│   └── WeatherWidget.tsx          # Main dashboard widget
+├── pages/
+│   ├── WeatherSettingsPage.tsx    # Configuration page (/plugins/weather/settings)
+│   └── WeatherDashboardPage.tsx   # Overview page (/plugins/weather/dashboard)
+└── index.ts                       # Plugin entry point
+```
+
+### Key Features
+
+- **TSX Components**: Modern React components with TypeScript
+- **CommonJS Runtime**: Browser-compatible module system with require() support
+- **Page-Based Routing**: Structured navigation within the plugin
+- **Mantine UI**: Consistent design system integration
+- **Plugin Runtime**: Seamless integration with Qirvo's plugin system
+
 ## 🚀 Quick Start (5 Minutes)
 
 ### Step 1: Get Your Weather API Key
@@ -36,27 +60,32 @@ Choose one of the installation methods below:
 #### Option B: Manual Installation from Source
 
 1. **Clone the plugin repository:**
+
    ```bash
    git clone https://github.com/qirvo/plugin-weather-widget.git
    cd qirvo-weather-plugin
    ```
 
 2. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 3. **Build the plugin:**
+
    ```bash
    npm run build
    ```
 
 4. **Create distribution package:**
+
    ```bash
    npm pack
    ```
 
 5. **Install in Qirvo:**
+
    ```bash
    # Using Qirvo CLI
    qirvo plugin install ./qirvo-plugin-weather-widget-1.0.0.tgz
@@ -71,11 +100,13 @@ Choose one of the installation methods below:
    - Go to **Dashboard** → **Plugins** → **Weather Widget** → **Settings**
 
 2. **Add Your API Key:**
+
    ```
    API Key: [paste your OpenWeatherMap API key here]
    ```
 
 3. **Set Your Location (Optional):**
+
    ```
    Default Location: New York, NY
    ```
@@ -94,6 +125,7 @@ Choose one of the installation methods below:
    - You should see current weather for your location
 
 2. **Test CLI Commands:**
+
    ```bash
    # Test basic weather command
    qirvo weather
@@ -132,6 +164,7 @@ Set up your default location for automatic weather updates:
 ```
 
 **Supported Location Formats:**
+
 - City name: `"London"`
 - City, Country: `"London, UK"`
 - City, State, Country: `"New York, NY, US"`
@@ -145,6 +178,7 @@ Set up your default location for automatic weather updates:
 The weather widget displays in your Qirvo dashboard sidebar:
 
 **Features:**
+
 - Current temperature and conditions
 - Weather icon and description
 - Humidity and wind speed
@@ -153,6 +187,7 @@ The weather widget displays in your Qirvo dashboard sidebar:
 - Manual refresh button
 
 **Widget Controls:**
+
 - 🔄 **Refresh Button:** Manual weather update
 - ⚙️ **Settings:** Quick access to configuration
 - 📍 **Location:** Click to change location
@@ -162,6 +197,7 @@ The weather widget displays in your Qirvo dashboard sidebar:
 Access weather information from the command line:
 
 #### Basic Commands
+
 ```bash
 # Current weather for default location
 qirvo weather
@@ -174,6 +210,7 @@ qirvo w "Paris, France"
 ```
 
 #### Advanced Commands
+
 ```bash
 # Specify temperature units
 qirvo weather "Berlin, Germany" --units celsius
@@ -206,6 +243,7 @@ qirvo weather add-to-task [task-id]
 #### Calendar Integration
 
 Weather information automatically appears in:
+
 - Daily planner view
 - Calendar events (if location-based)
 - Task scheduling recommendations
@@ -219,6 +257,7 @@ Weather information automatically appears in:
 **Problem:** Plugin shows "Weather API key not configured"
 
 **Solution:**
+
 1. Go to Plugin Settings
 2. Add your OpenWeatherMap API key
 3. Save settings and refresh
@@ -228,6 +267,7 @@ Weather information automatically appears in:
 **Problem:** Weather command fails with location error
 
 **Solutions:**
+
 - Check spelling of location name
 - Try different format: "City, Country"
 - Use coordinates: "40.7128,-74.0060"
@@ -238,6 +278,7 @@ Weather information automatically appears in:
 **Problem:** Weather widget shows old data
 
 **Solutions:**
+
 1. Check internet connection
 2. Verify API key is valid
 3. Click refresh button manually
@@ -249,6 +290,7 @@ Weather information automatically appears in:
 **Problem:** `qirvo weather` command not found
 
 **Solutions:**
+
 1. Ensure plugin is installed and enabled
 2. Restart Qirvo CLI
 3. Check plugin status: `qirvo plugin list`
@@ -259,6 +301,7 @@ Weather information automatically appears in:
 **Problem:** "API rate limit exceeded" error
 
 **Solutions:**
+
 - Wait for rate limit to reset (usually 1 hour)
 - Increase update interval to reduce API calls
 - Upgrade to paid OpenWeatherMap plan if needed
@@ -268,16 +311,19 @@ Weather information automatically appears in:
 Enable detailed logging for troubleshooting:
 
 1. **Enable Debug Logging:**
+
    ```bash
    qirvo config set plugins.weather-widget.logLevel debug
    ```
 
 2. **View Logs:**
+
    ```bash
    qirvo logs --plugin weather-widget
    ```
 
 3. **Check Plugin Status:**
+
    ```bash
    qirvo plugin status weather-widget
    ```
@@ -285,6 +331,7 @@ Enable detailed logging for troubleshooting:
 ### Log Files
 
 Plugin logs are stored in:
+
 - **Windows:** `%APPDATA%\Qirvo\logs\plugins\weather-widget.log`
 - **macOS:** `~/Library/Application Support/Qirvo/logs/plugins/weather-widget.log`
 - **Linux:** `~/.config/qirvo/logs/plugins/weather-widget.log`
@@ -300,6 +347,7 @@ Qirvo automatically checks for plugin updates:
    - Enable "Automatically update plugins"
 
 2. **Manual Update Check:**
+
    ```bash
    qirvo plugin update weather-widget
    ```
@@ -307,11 +355,13 @@ Qirvo automatically checks for plugin updates:
 ### Manual Updates
 
 1. **Download Latest Version:**
+
    ```bash
    qirvo plugin install @qirvo/plugin-weather-widget@latest
    ```
 
 2. **Update from Source:**
+
    ```bash
    cd qirvo-weather-plugin
    git pull origin main
@@ -324,16 +374,19 @@ Qirvo automatically checks for plugin updates:
 ### Complete Removal
 
 1. **Disable Plugin:**
+
    ```bash
    qirvo plugin disable weather-widget
    ```
 
 2. **Uninstall Plugin:**
+
    ```bash
    qirvo plugin uninstall weather-widget
    ```
 
 3. **Clean Up Data (Optional):**
+
    ```bash
    qirvo plugin cleanup weather-widget
    ```
@@ -364,6 +417,7 @@ Qirvo automatically checks for plugin updates:
 ### Memory Usage
 
 The plugin uses minimal resources:
+
 - **Memory:** ~2-5 MB
 - **Storage:** ~1 MB for cached data
 - **Network:** ~1 KB per API call
@@ -397,12 +451,13 @@ The plugin uses minimal resources:
 
 1. **Documentation:** [Qirvo Plugin Docs](https://docs.qirvo.ai/plugins)
 2. **Community:** [Discord Server](https://discord.gg/qirvo)
-3. **Email:** plugins@qirvo.ai
+3. **Email:** <plugins@qirvo.ai>
 4. **Issues:** [GitHub Issues](https://github.com/qirvo/plugin-weather-widget/issues)
 
 ### Reporting Bugs
 
 When reporting issues, include:
+
 - Qirvo version
 - Plugin version
 - Operating system

@@ -5,6 +5,42 @@ All notable changes to the Weather Widget plugin will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.14] - 2025-08-29
+
+### Fixed
+
+- **CommonJS Module Support**: Implemented full CommonJS require() compatibility
+  - Fixed "require is not defined" errors in browser environment
+  - Added proper module resolution for external dependencies
+  - Enhanced plugin runtime compatibility with Qirvo dashboard
+
+### Added
+
+- **TSX Component Architecture**: Modernized plugin with TypeScript React components
+  - Created WeatherWidget.tsx with proper TypeScript interfaces
+  - Added WeatherSettingsPage.tsx for configuration management
+  - Implemented WeatherDashboardPage.tsx for weather overview
+  - Proper React hooks integration and state management
+
+- **Page-Based Plugin Structure**: Implemented structured routing system
+  - `/plugins/weather/settings` for plugin configuration
+  - `/plugins/weather/dashboard` for weather data display
+  - Clean separation between widget and page components
+  - Enhanced plugin integration with Qirvo dashboard
+
+### Changed
+
+- **Plugin Architecture Modernization**: Migrated to modern React development patterns
+  - Converted from JavaScript widget.js to TypeScript TSX components
+  - Updated manifest.json to point to default page routes
+  - Implemented proper React imports and JSX syntax
+  - Enhanced component reusability and maintainability
+
+- **Module System Compatibility**: Ensured browser-compatible module execution
+  - Configured TypeScript compilation for CommonJS output
+  - Added proper module resolution for plugin dependencies
+  - Improved plugin loading reliability and error handling
+
 ## [1.0.9] - 2025-08-27
 
 ### Changed
@@ -33,20 +69,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Enhanced error handling and user feedback
 - CLI command support with aliases
 - Security-focused permissions system
-
-### Changed
-
-- Updated to extend BasePlugin from @qirvo/plugin-sdk v2.0.3
-- Manifest format updated to v2 with proper plugin marketplace schema
-- Configuration schema enhanced with better validation and user experience
-- Widget component improved with better error states and configuration hints
-- Entry point updated to use compiled TypeScript output
-
-### Fixed
-
-- Configuration field naming consistency (location → defaultLocation)
-- Widget error states now provide actionable feedback
-- Build process now includes proper cleaning before compilation
 
 ### Security
 

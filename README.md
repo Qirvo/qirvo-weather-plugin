@@ -35,22 +35,26 @@ A comprehensive weather plugin for Qirvo that displays current weather condition
 ### Method 2: Manual Installation
 
 1. **Download the Plugin**:
+
    ```bash
    git clone https://github.com/qirvo/plugin-weather-widget.git
    cd plugin-weather-widget
    ```
 
 2. **Install Dependencies**:
+
    ```bash
    npm install
    ```
 
 3. **Build the Plugin**:
+
    ```bash
    npm run build
    ```
 
 4. **Package for Distribution**:
+
    ```bash
    npm pack
    ```
@@ -98,6 +102,7 @@ Once installed and configured, the weather widget will automatically appear in y
 Use the weather plugin from the Qirvo command line:
 
 #### Basic Weather Command
+
 ```bash
 # Get weather for your default location
 qirvo weather
@@ -109,6 +114,7 @@ qirvo weather "Tokyo, Japan"
 ```
 
 #### Advanced Options
+
 ```bash
 # Specify temperature units
 qirvo weather "Paris, France" --units fahrenheit
@@ -122,6 +128,7 @@ qirvo weather "Los Angeles, CA" --units fahrenheit --days 7
 ```
 
 #### Command Aliases
+
 ```bash
 # Short aliases for quick access
 qirvo w "Miami, FL"
@@ -137,78 +144,90 @@ The weather plugin can integrate with your Qirvo tasks:
 qirvo weather add-to-task <task-id>
 ```
 
-## API Reference
+## Architecture
 
-### Plugin Methods
+### Modern TSX Component Architecture
 
-The Weather Plugin exposes the following methods for integration:
+The Weather Plugin has been modernized with a clean TypeScript React architecture:
 
-```typescript
-// Get current weather data
-const weather = await plugin.getWidgetData();
+#### Component Structure
 
-// Fetch weather for specific location
-const weather = await plugin.fetchWeather("London, UK", "celsius", 3);
-
-// Add weather info to a task
-await plugin.addWeatherToTask(taskId);
+```text
+src/
+├── components/
+│   └── WeatherWidget.tsx          # Main widget component
+├── pages/
+│   ├── WeatherSettingsPage.tsx    # Settings configuration page
+│   └── WeatherDashboardPage.tsx   # Weather overview dashboard
+└── index.ts                       # Plugin entry point
 ```
 
-### Weather Data Structure
+#### Key Features
+
+- **TypeScript TSX Components**: Modern React components with full TypeScript support
+- **Page-Based Routing**: Structured routing for `/plugins/weather/settings` and `/plugins/weather/dashboard`
+- **CommonJS Compatibility**: Full browser-compatible module system with require() support
+- **Mantine UI Integration**: Consistent design system with Qirvo dashboard
+- **Plugin Runtime Integration**: Seamless integration with Qirvo's plugin system
+
+#### Module System
+
+The plugin uses CommonJS modules for browser compatibility:
 
 ```typescript
-interface WeatherData {
-  location: string;
-  temperature: number;
-  description: string;
-  humidity: number;
-  windSpeed: number;
-  icon: string;
-  forecast?: ForecastDay[];
-}
-
-interface ForecastDay {
-  date: string;
-  high: number;
-  low: number;
-  description: string;
-  icon: string;
-}
+// Plugin components can use require() for external dependencies
+const React = require('react');
+const { Card, Text, Button } = require('@mantine/core');
 ```
+
+### Plugin Lifecycle
+
+The Weather Plugin follows Qirvo's plugin lifecycle:
+
+1. **Installation**: Plugin files are uploaded and stored in Firebase Storage
+2. **Registration**: Plugin is registered in the Qirvo plugin registry
+3. **Loading**: Plugin runtime loads components using CommonJS require() system
+4. **Execution**: Components render in the dashboard with full React support
+5. **Configuration**: Settings are managed through dedicated configuration pages
 
 ## Development
 
 ### Setting Up Development Environment
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/qirvo/plugin-weather-widget.git
    cd plugin-weather-widget
    ```
 
 2. **Install dependencies**:
+
    ```bash
    npm install
    ```
 
 3. **Start development mode**:
+
    ```bash
    npm run dev
    ```
 
 4. **Run tests**:
+
    ```bash
    npm test
    ```
 
 5. **Lint code**:
+
    ```bash
    npm run lint
    ```
 
 ### Project Structure
 
-```
+```text
 qirvo-weather-plugin/
 ├── src/
 │   ├── index.ts          # Main plugin logic
@@ -282,7 +301,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-- 📧 Email: plugins@qirvo.ai
+- 📧 Email: <plugins@qirvo.ai>
 - 💬 Discord: [Qirvo Community](https://discord.gg/qirvo)
 - 📖 Documentation: [Qirvo Plugin Docs](https://docs.qirvo.ai/plugins)
 - 🐛 Bug Reports: [GitHub Issues](https://github.com/qirvo/plugin-weather-widget/issues)
@@ -312,4 +331,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Made with ❤️ by the Qirvo Community**
+## Made with ❤️ by the Qirvo Community
