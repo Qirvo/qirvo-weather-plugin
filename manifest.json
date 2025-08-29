@@ -1,0 +1,124 @@
+{
+  "manifest_version": 2,
+  "id": "qirvo.weather-widget",
+  "name": "weather-widget",
+  "version": "1.0.13",
+  "type": "dashboard-widget",
+  "entry": "dist/index.js",
+  "author": {
+    "name": "Qirvo Community",
+    "email": "plugins@qirvo.ai",
+    "avatar": "",
+    "website": "https://qirvo.ai"
+  },
+  "description": "Display current weather and forecasts in your Qirvo daily planner with location-based updates",
+  "tags": [
+    "weather",
+    "widget",
+    "forecast",
+    "daily"
+  ],
+  "category": "utilities",
+  "license": "MIT",
+  "repository": "https://github.com/qirvo-ai/plugin-weather-widget",
+  "homepage": "https://qirvo.ai/plugins/weather-widget",
+  "permissions": [
+    "network",
+    "storage",
+    "notifications"
+  ],
+  "external_services": [
+    {
+      "name": "openweathermap",
+      "type": "api",
+      "base_url": "https://api.openweathermap.org/data/2.5",
+      "auth": "api_key",
+      "description": "OpenWeatherMap API for weather data"
+    }
+  ],
+  "pages": [
+    {
+      "path": "/plugins/weather/settings",
+      "component": "WeatherSettingsPage",
+      "menu": {
+        "label": "Weather Settings",
+        "icon": "cloud",
+        "parent": "settings"
+      }
+    },
+    {
+      "path": "/plugins/weather/dashboard",
+      "component": "WeatherDashboardPage",
+      "menu": {
+        "label": "Weather Dashboard",
+        "icon": "sun",
+        "parent": "main"
+      }
+    }
+  ],
+  "menu_items": [
+    {
+      "label": "Weather",
+      "path": "/plugins/weather/dashboard",
+      "icon": "cloud-sun",
+      "position": "main",
+      "order": 100
+    }
+  ],
+  "engines": {
+    "qirvo": ">=1.0.0"
+  },
+  "dashboard_widget": {
+    "name": "Weather Widget",
+    "component": "WeatherWidget",
+    "size": "medium",
+    "configSchema": {
+      "apiKey": {
+        "type": "string",
+        "required": true,
+        "description": "OpenWeatherMap API key",
+        "sensitive": true
+      },
+      "defaultLocation": {
+        "type": "string",
+        "required": true,
+        "description": "Default location for weather data",
+        "placeholder": "New York, NY"
+      },
+      "units": {
+        "type": "select",
+        "required": false,
+        "default": "metric",
+        "options": [
+          {
+            "value": "metric",
+            "label": "Celsius (°C)"
+          },
+          {
+            "value": "imperial",
+            "label": "Fahrenheit (°F)"
+          }
+        ],
+        "description": "Temperature units"
+      }
+    }
+  },
+  "commands": [
+    {
+      "name": "weather",
+      "description": "Get current weather for a location",
+      "usage": "weather [location] [--units celsius|fahrenheit] [--days 1-5]",
+      "aliases": [
+        "w",
+        "forecast"
+      ]
+    }
+  ],
+  "hooks": [
+    "onInstall",
+    "onUninstall",
+    "onEnable",
+    "onDisable",
+    "onUpdate"
+  ]
+}

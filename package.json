@@ -1,0 +1,77 @@
+{
+  "name": "@qirvo/plugin-weather-widget",
+  "version": "1.0.13",
+  "description": "A weather widget plugin for Qirvo that displays current weather and forecasts in your daily planner",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "manifest.json",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts",
+    "clean": "rimraf dist coverage .nyc_output",
+    "clean:all": "npm run clean && rimraf node_modules package-lock.json",
+    "prebuild": "npm run clean",
+    "prepare": "npm run build",
+    "package": "npm run build && npm pack"
+  },
+  "keywords": [
+    "qirvo",
+    "plugin",
+    "weather",
+    "widget",
+    "forecast",
+    "daily-planner"
+  ],
+  "author": {
+    "name": "Qirvo Community",
+    "email": "plugins@qirvo.ai",
+    "url": "https://qirvo.ai"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qirvo/plugin-weather-widget"
+  },
+  "homepage": "https://qirvo.ai/plugins/weather-widget",
+  "bugs": {
+    "url": "https://github.com/qirvo/plugin-weather-widget/issues"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "qirvo": {
+    "minVersion": "1.0.0",
+    "maxVersion": "2.0.0",
+    "category": "utilities",
+    "tags": [
+      "weather",
+      "widget",
+      "forecast",
+      "daily"
+    ],
+    "permissions": [
+      "network",
+      "storage",
+      "location"
+    ],
+    "price": 0,
+    "free": true
+  }
+}
