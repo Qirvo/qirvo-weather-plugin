@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "id": "qirvo.weather-widget",
-  "name": "weather-widget",
-  "version": "1.0.13",
+  "name": "qirvo-weather-plugin",
+  "version": "1.0.14",
   "type": "dashboard-widget",
   "entry": "dist/index.js",
   "author": {
@@ -16,11 +16,13 @@
     "weather",
     "widget",
     "forecast",
-    "daily"
+    "daily",
+    "plugin",
+    "utilities"
   ],
   "category": "utilities",
   "license": "MIT",
-  "repository": "https://github.com/qirvo-ai/plugin-weather-widget",
+  "repository": "https://github.com/Qirvo/qirvo-weather-plugin",
   "homepage": "https://qirvo.ai/plugins/weather-widget",
   "permissions": [
     "network",

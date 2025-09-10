@@ -37,7 +37,7 @@ A comprehensive weather plugin for Qirvo that displays current weather condition
 1. **Download the Plugin**:
 
    ```bash
-   git clone https://github.com/qirvo/plugin-weather-widget.git
+   git clone https://github.com/Qirvo/qirvo-weather-plugin.git
    cd plugin-weather-widget
    ```
 
@@ -197,7 +197,7 @@ The Weather Plugin follows Qirvo's plugin lifecycle:
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/qirvo/plugin-weather-widget.git
+   git clone https://github.com/Qirvo/qirvo-weather-plugin.git
    cd plugin-weather-widget
    ```
 
@@ -289,11 +289,11 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ### Reporting Issues
 
-Please report issues on our [GitHub Issues](https://github.com/qirvo/plugin-weather-widget/issues) page.
+Please report issues on our [GitHub Issues](https://github.com/Qirvo/qirvo-weather-plugin/issues) page.
 
 ### Feature Requests
 
-Have an idea for a new feature? Open a [Feature Request](https://github.com/qirvo/plugin-weather-widget/issues/new?template=feature_request.md).
+Have an idea for a new feature? Open a [Feature Request](https://github.com/Qirvo/qirvo-weather-plugin/issues/new?template=feature_request.md).
 
 ## License
 
@@ -302,32 +302,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Support
 
 - 📧 Email: <plugins@qirvo.ai>
-- 💬 Discord: [Qirvo Community](https://discord.gg/qirvo)
 - 📖 Documentation: [Qirvo Plugin Docs](https://docs.qirvo.ai/plugins)
-- 🐛 Bug Reports: [GitHub Issues](https://github.com/qirvo/plugin-weather-widget/issues)
+- 🐛 Bug Reports: [GitHub Issues](https://github.com/Qirvo/qirvo-weather-plugin/issues)
 
-## Changelog
-
-### v1.0.3 (2024-12-20)
-
-- Enhanced plugin lifecycle management with full install/uninstall/enable/disable hooks
-- Added admin approval workflow integration
-- Implemented configuration migration for seamless updates
-- Added health check endpoint for admin monitoring
-- Enhanced manifest with v2 schema alignment
-- Added clean scripts for project maintenance
-- Improved error handling and user feedback
-- Updated to use latest Qirvo Plugin SDK v2.0.3
-
-### v1.0.0 (2024-08-01)
-
-- Initial release
-- Current weather display
-- 3-day forecast
-- CLI commands
-- Dashboard widget
-- Configurable settings
-- Auto-update functionality
+## [Changelog](CHANGELOG.md)
 
 ---
 
