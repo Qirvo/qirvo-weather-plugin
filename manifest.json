@@ -25,8 +25,9 @@
   "repository": "https://github.com/Qirvo/qirvo-weather-plugin",
   "homepage": "https://qirvo.ai/plugins/weather-widget",
   "permissions": [
-    "network",
-    "storage",
+    "network-access",
+    "storage-read",
+    "storage-write",
     "notifications"
   ],
   "external_services": [
