@@ -1,6 +1,6 @@
 {
   "name": "@qirvo/plugin-weather-widget",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "A weather widget plugin for Qirvo that displays current weather and forecasts in your daily planner",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
