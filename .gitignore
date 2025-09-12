@@ -54,3 +54,5 @@ pids
 # Temporary folders
 tmp/
 temp/
+*.zip
+*.tgz

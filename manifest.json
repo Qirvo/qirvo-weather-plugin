@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "id": "qirvo.weather-widget",
   "name": "qirvo-weather-plugin",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "type": "dashboard-widget",
   "entry": "dist/index.js",
   "author": {

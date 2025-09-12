@@ -10,8 +10,11 @@
     "README.md"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && npm run copy-assets",
+    "copy-assets": "xcopy /E /I /Y \"src\\*.json\" \"dist\\\" && xcopy /E /I /Y \"src\\*.css\" \"dist\\\" && xcopy /E /I /Y \"src\\*.html\" \"dist\\\"",
     "dev": "tsc --watch",
+    "pack": "npm run build && npm pack",
+    "pack-zip": "npm run build && node package-zip.js",
     "test": "jest",
     "lint": "eslint src/**/*.ts",
     "clean": "rimraf dist coverage .nyc_output",
