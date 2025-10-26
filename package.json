@@ -14,7 +14,7 @@
     "copy-assets": "xcopy /E /I /Y \"src\\*.json\" \"dist\\\" && xcopy /E /I /Y \"src\\*.css\" \"dist\\\" && xcopy /E /I /Y \"src\\*.html\" \"dist\\\"",
     "dev": "tsc --watch",
     "pack": "npm run build && npm pack",
-    "pack-zip": "npm run build && node package-zip.js",
+    "pack-zip": "node package-zip-jszip.js",
     "test": "jest",
     "lint": "eslint src/**/*.ts",
     "clean": "rimraf dist coverage .nyc_output",
@@ -52,6 +52,7 @@
     "@types/node": "^20.19.11",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
+    "jszip": "^3.10.1",
     "rimraf": "^5.0.0",
     "typescript": "^5.0.0"
   },
